@@ -1,1 +1,3 @@
-# CS5780-WillMetz-RohanVittal-AdamLosser-MattShaw-2
+# CS5780 Final Project
+
+## Rohan Vittal
