@@ -1,0 +1,6 @@
+build/
+.vscode/*.o
+.vscode/*.elf
+.vscode/*.bin
+.vscode/*.hex
+compile_commands.json
