@@ -1,0 +1,1 @@
+Library can be found here: https://bit.ly/EasyEDA-SOCKET-LIB
