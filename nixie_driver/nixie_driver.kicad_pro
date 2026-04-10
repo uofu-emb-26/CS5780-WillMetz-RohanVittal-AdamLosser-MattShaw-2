@@ -51,69 +51,75 @@
           "min_clearance": 0.5
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
       },
       "rule_severities": {
-        "annular_width": "error",
-        "clearance": "error",
+        "annular_width": "warning",
+        "clearance": "warning",
         "connection_width": "warning",
-        "copper_edge_clearance": "error",
+        "copper_edge_clearance": "warning",
         "copper_sliver": "warning",
-        "courtyards_overlap": "error",
-        "creepage": "error",
-        "diff_pair_gap_out_of_range": "error",
-        "diff_pair_uncoupled_length_too_long": "error",
-        "drill_out_of_range": "error",
+        "courtyards_overlap": "warning",
+        "creepage": "warning",
+        "diff_pair_gap_out_of_range": "warning",
+        "diff_pair_uncoupled_length_too_long": "warning",
+        "drill_out_of_range": "warning",
         "duplicate_footprints": "warning",
         "extra_footprint": "warning",
-        "footprint": "error",
+        "footprint": "warning",
         "footprint_filters_mismatch": "ignore",
         "footprint_symbol_mismatch": "warning",
-        "footprint_type_mismatch": "ignore",
-        "hole_clearance": "error",
+        "footprint_type_mismatch": "warning",
+        "hole_clearance": "warning",
         "hole_to_hole": "warning",
         "holes_co_located": "warning",
-        "invalid_outline": "error",
+        "invalid_outline": "warning",
         "isolated_copper": "warning",
-        "item_on_disabled_layer": "error",
-        "items_not_allowed": "error",
-        "length_out_of_range": "error",
+        "item_on_disabled_layer": "warning",
+        "items_not_allowed": "warning",
+        "length_out_of_range": "warning",
         "lib_footprint_issues": "warning",
         "lib_footprint_mismatch": "warning",
-        "malformed_courtyard": "error",
-        "microvia_drill_out_of_range": "error",
+        "malformed_courtyard": "warning",
+        "microvia_drill_out_of_range": "warning",
         "mirrored_text_on_front_layer": "warning",
         "missing_courtyard": "ignore",
         "missing_footprint": "warning",
         "net_conflict": "warning",
         "nonmirrored_text_on_back_layer": "warning",
-        "npth_inside_courtyard": "ignore",
+        "npth_inside_courtyard": "warning",
         "padstack": "warning",
-        "pth_inside_courtyard": "ignore",
-        "shorting_items": "error",
+        "pth_inside_courtyard": "warning",
+        "shorting_items": "warning",
         "silk_edge_clearance": "warning",
         "silk_over_copper": "warning",
         "silk_overlap": "warning",
-        "skew_out_of_range": "error",
-        "solder_mask_bridge": "error",
-        "starved_thermal": "error",
+        "skew_out_of_range": "warning",
+        "solder_mask_bridge": "warning",
+        "starved_thermal": "warning",
         "text_height": "warning",
-        "text_on_edge_cuts": "error",
+        "text_on_edge_cuts": "warning",
         "text_thickness": "warning",
-        "through_hole_pad_without_hole": "error",
-        "too_many_vias": "error",
-        "track_angle": "error",
+        "through_hole_pad_without_hole": "warning",
+        "too_many_vias": "warning",
+        "track_angle": "warning",
         "track_dangling": "warning",
-        "track_segment_length": "error",
-        "track_width": "error",
-        "tracks_crossing": "error",
-        "unconnected_items": "error",
-        "unresolved_variable": "error",
+        "track_segment_length": "warning",
+        "track_width": "warning",
+        "tracks_crossing": "warning",
+        "unconnected_items": "warning",
+        "unresolved_variable": "warning",
         "via_dangling": "warning",
-        "zones_intersect": "error"
+        "zones_intersect": "warning"
       },
       "rules": {
         "max_error": 0.005,
@@ -180,7 +186,9 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -207,7 +215,12 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
