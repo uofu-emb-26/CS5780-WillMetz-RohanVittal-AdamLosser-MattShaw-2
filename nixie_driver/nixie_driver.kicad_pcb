@@ -13514,7 +13514,7 @@
 	(footprint "logos:thistlecock"
 		(layer "F.Cu")
 		(uuid "fdfbdf76-7fdd-4cca-8294-72f932a591a2")
-		(at 155.0924 76.5302)
+		(at 155.0924 76.835)
 		(property "Reference" "G***"
 			(at 0 0 0)
 			(layer "F.SilkS")
@@ -13522,7 +13522,7 @@
 			(uuid "7618f861-573e-4490-ab10-2a5fd3da125d")
 			(effects
 				(font
-					(size 1.5 1.5)
+					(size 1.5 2.54)
 					(thickness 0.3)
 				)
 			)
@@ -13534,7 +13534,7 @@
 			(uuid "1bff518c-b5d6-47b9-aa08-bdc5bc291495")
 			(effects
 				(font
-					(size 1.5 1.5)
+					(size 1.5 2.54)
 					(thickness 0.3)
 				)
 			)
@@ -16463,7 +16463,7 @@
 		(uuid "7bf242a2-039c-40ce-ac77-3add978af8ba")
 	)
 	(via
-		(at 122.8344 97.1296)
+		(at 122.555 100.33)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
@@ -16508,7 +16508,7 @@
 		(uuid "953bd725-6e0c-4a96-a9da-3363e1191f25")
 	)
 	(via
-		(at 122.2756 97.1296)
+		(at 122.555 93.98)
 		(size 0.6)
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
