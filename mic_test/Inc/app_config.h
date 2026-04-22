@@ -35,5 +35,7 @@
 #define APP_UPDATE_PERIOD_MS          25u
 #define APP_SMOOTHING_NUMERATOR       7u
 #define APP_SMOOTHING_DENOMINATOR     8u
+#define BUFFER_SIZE                   200u
+#define UPDATE_THRESHOLD              5u
 
 #endif /* APP_CONFIG_H */

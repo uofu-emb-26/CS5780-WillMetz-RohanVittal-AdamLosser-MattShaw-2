@@ -28,6 +28,13 @@ add_executable(${CMAKE_PROJECT_NAME}
     Src/runtime_stubs.c
     system_stm32f0xx.c
     startup_stm32f072xb.s
+    Src/uart.c
+    Src/nixie_drivers.c
+    STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+    STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c
+    STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+    STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+    STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
 )
 
 set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES ADDITIONAL_CLEAN_FILES "${CMAKE_PROJECT_NAME}.map")
@@ -36,10 +43,12 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     Inc
     CMSIS/Core/Include
     CMSIS/Device/ST/STM32F0xx/Include
+    STM32F0xx_HAL_Driver/Inc
 )
 
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     STM32F072xB
+    USE_HAL_DRIVER
 )
 
 target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE

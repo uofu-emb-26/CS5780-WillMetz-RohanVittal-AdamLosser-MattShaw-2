@@ -39,8 +39,8 @@ void board_init(void)
 {
     SystemCoreClockUpdate();
     (void)SysTick_Config(SystemCoreClock / 1000u);
-    leds_init();
-    board_led_bar_set(0u);
+    //leds_init();
+    //board_led_bar_set(0u);
 }
 
 void board_delay_ms(uint32_t ms)
