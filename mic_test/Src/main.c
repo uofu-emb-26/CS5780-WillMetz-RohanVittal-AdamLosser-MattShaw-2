@@ -56,6 +56,8 @@ int main(void)
     init_tube_gpios();
 
     uint8_t previous_percentage = 0; // hold the previously transmitted value
+
+
     
 
     while (1)
@@ -129,6 +131,7 @@ int main(void)
         }
 
         board_delay_ms(APP_UPDATE_PERIOD_MS);
+
     }
 
 }

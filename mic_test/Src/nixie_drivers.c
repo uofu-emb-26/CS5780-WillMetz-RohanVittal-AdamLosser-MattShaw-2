@@ -9,7 +9,7 @@ void write_int_to_tubes(uint16_t integer_to_write)
 
     // the mapping of digits is messed up, this is a lookup table
   static const uint8_t digit_map[10] = {
-      0b1101, // 0
+      0b1100, // 0
       0b0001, // 1
       0b1001, // 2
       0b0000, // 3
@@ -79,7 +79,7 @@ void write_int_to_tubes(uint16_t integer_to_write)
 
    // set the bits for tube 3
    GPIOA->BSRR = (0xF << 24) | (0x1 << 16);
-   GPIOA->BSRR = ((tube_three_mapped << 8) | (tube_three_val >> 3));
+   GPIOA->BSRR = ((tube_three_mapped << 8) | (tube_three_mapped >> 3));
 
    // set the bits for tube 2
    GPIOB->BSRR = (0xF << 24);
