@@ -1,21 +1,38 @@
 #include "stm32f072xb.h"
 #include "stm32f0xx_hal.h"
+#include "stm32f0xx_hal_rcc.h"
 #include "nixie_drivers.h"
 
 // function to write integer to nixie tubes
 void write_int_to_tubes(uint16_t integer_to_write)
 {
-   // initialize an array to hold the value of each digit we want to display (one per nixie tube)
-   uint16_t digits[4] = {0};
 
-   // initialize loop varaibles
-   uint16_t quotient = integer_to_write;
-   uint32_t loop_count = 0;
+    // the mapping of digits is messed up, this is a lookup table
+  static const uint8_t digit_map[10] = {
+      0b1101, // 0
+      0b0001, // 1
+      0b1001, // 2
+      0b0000, // 3
+      0b1110, // 4
+      0b0110, // 5
+      0b1010, // 6
+      0b0010, // 7
+      0b1000, // 8
+      0b0100  // 9
+  };
 
-   /* While the quotient is greater than 10, we modulus divide by 10 to get the next digit. As soon as the quotient is less than 10, 
-    we have reached the last digit, so we store the last digit and break out of the loop. */
-   while (1)
-   {
+  // initialize an array to hold the value of each digit we want to display (one
+  // per nixie tube)
+  uint16_t digits[4] = {0};
+
+  // initialize loop varaibles
+  uint16_t quotient = integer_to_write;
+  uint32_t loop_count = 0;
+
+  /* While the quotient is greater than 10, we modulus divide by 10 to get the
+   next digit. As soon as the quotient is less than 10, we have reached the last
+   digit, so we store the last digit and break out of the loop. */
+  while (1) {
 
     if (quotient < 10)
     {
@@ -39,6 +56,11 @@ void write_int_to_tubes(uint16_t integer_to_write)
    uint16_t tube_two_val = digits[1];
    uint16_t tube_one_val = digits[0];
 
+   uint16_t tube_four_mapped = digit_map[tube_four_val];
+   uint16_t tube_three_mapped = digit_map[tube_three_val];
+   uint16_t tube_two_mapped = digit_map[tube_two_val];
+   uint16_t tube_one_mapped = digit_map[tube_one_val];
+
    /* The tubes are controlled with 4 bits each, which represent the binary digit (from 0 to 9) that the tube displays.
       These bits are written to sets of 4 GPIO pins, which act as 4-bit "control registers" for the tubes. The pin maps are as follows:
       
@@ -53,25 +75,26 @@ void write_int_to_tubes(uint16_t integer_to_write)
 
    // set the bits for tube 4
    GPIOC->BSRR = (0xF << 22);
-   GPIOC->BSRR = (tube_four_val << 6);
+   GPIOC->BSRR = (tube_four_mapped << 6);
 
    // set the bits for tube 3
    GPIOA->BSRR = (0xF << 24) | (0x1 << 16);
-   GPIOA->BSRR = ((tube_three_val << 8) | (tube_three_val >> 3));
+   GPIOA->BSRR = ((tube_three_mapped << 8) | (tube_three_val >> 3));
 
    // set the bits for tube 2
    GPIOB->BSRR = (0xF << 24);
-   GPIOB->BSRR = (tube_two_val << 8);
+   GPIOB->BSRR = (tube_two_mapped << 8);
 
    // set the bits for tube 1
    GPIOB->BSRR = (0xF << 20);
-   GPIOB->BSRR = (tube_one_val << 4);
+   GPIOB->BSRR = (tube_one_mapped << 4);
     
 }
 
 // function to initialize all the GPIO pins that interface with the tubes
 void init_tube_gpios(void)
 {
+    __HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE(); // enable the GPIOB clock
     __HAL_RCC_GPIOC_CLK_ENABLE(); // enable the GPIOC clock
 
