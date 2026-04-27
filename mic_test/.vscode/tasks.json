@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "cmake-configure-debug",
+      "type": "shell",
+      "command": "cmake --preset Debug",
+      "group": "build"
+    },
+    {
+      "label": "cmake-build-debug",
+      "type": "shell",
+      "command": "cmake --build --preset build-debug",
+      "dependsOn": "cmake-configure-debug",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "flash-mic-led-meter",
+      "type": "shell",
+      "command": "cmake --build --preset build-debug --target flash_mic_led_meter",
+      "dependsOn": "cmake-build-debug",
+      "group": "build"
+    },
+    {
+      "label": "build debug",
+      "type": "shell",
+      "command": "cmake --build --preset build-debug",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+    }
+
+  ]
+}
